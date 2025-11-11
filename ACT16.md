@@ -268,5 +268,5 @@ $$ A(BC) = \begin{bmatrix}
 10 & 34
 \end{bmatrix} $$
 
-**Conclusión:** la propiedad asociativa de la multiplicación de matrices garantiza que el resultado de la multiplicación no depende de cómo agrupemos las matrices. Es decir, podemos agrupar las matrices de diferentes maneras, como en **$(AB)C = A(BC)$**, y siempre obtendremos el mismo resultado, siempre que las dimensiones sean adecuadas. Esta propiedad es fundamental para realizar cálculos más complejos de manera flexible y eficiente en álgebra lineal.
+**Conclusión:** la propiedad asociativa de la multiplicación de matrices garantiza que el resultado de la multiplicación no depende de cómo agrupemos las matrices, esto quiere decir, podemos agrupar las matrices de diferentes maneras, como en **$(AB)C = A(BC)$**, y siempre obtendremos el mismo resultado, siempre que las dimensiones sean adecuadas. Esta propiedad es fundamental para realizar cálculos más complejos de manera flexible y eficiente en álgebra lineal.
 
