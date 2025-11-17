@@ -564,3 +564,9 @@ El signo del determinante de la matriz formada por los vectores tiene una interp
 ---
 
 **Conclusión:** Lo que aprendí es cómo el signo del determinante puede influir en la orientación del resultado, lo que refleja la relación geométrica entre los vectores en el plano. También pude ver cómo las diferentes propiedades de los determinantes se interrelacionan al resolverlos, y cómo el método de Sarrus me confundió al principio, fue solo cuando empecé a pasar los ejercicios a StackEdit para visualizarlos mejor que me percaté de mis errores y pude corregirlos, lo que me permitió entender más claramente el proceso y la importancia de cada paso.
+
+
+
+
+
+prueba de la nueva rama.
