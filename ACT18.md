@@ -100,18 +100,22 @@ $$
 $$
 
 ### d)
-$$ D= \begin{bmatrix}
-0 & 5 & \\
--5 & 0 & \\
-\end{bmatrix}  $$ =
+### d)
+
+$$
+D = \begin{bmatrix}
+0 & 5 \\
+-5 & 0 \\
+\end{bmatrix}
+$$
 
 $$
 \text{Det} \left( \begin{pmatrix} 0 & -5 \\ 5 & 0 \end{pmatrix} \right) = (0)(0) - (-5)(5) = 0 + 25 = 25
 $$
+
 $$
 \boxed{25}
 $$
-
 ---
 
 # Ejercicio 2: Cofactores y metodo Sarrus
