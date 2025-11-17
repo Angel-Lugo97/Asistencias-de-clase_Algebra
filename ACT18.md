@@ -2,7 +2,7 @@
 ## Materia: Fundamentos de álgebra
 ## Alumno: Angel Abraham Lugo Saenz
 ## Grupo: B
-## Actividad #16.  Matrices documentación
+## Actividad #18.  Matrices documentación
 
 
 # Objetivo
