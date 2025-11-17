@@ -475,14 +475,15 @@ $$
 $$
 
 ### Paso 1: Formar la matriz 2x2
-
 Colocamos los vectores como **columnas** de una matriz 2x2:
+
 $$
 A = \begin{pmatrix}
 3 & 2 \\
 1 & 4
 \end{pmatrix}
 $$
+
   ### Paso 2: Calcular el determinante
 
 El determinante de una matriz 2x2 se calcula con la fórmula:
