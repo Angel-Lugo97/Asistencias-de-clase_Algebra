@@ -327,7 +327,7 @@ $$
 
 ---
 
-## Ejercicio 2. Clasificación de sistemas \(2\times 2\)
+## Ejercicio 2. Clasificación de sistemas 
 
 ### 2.1 Sistema (a)
 
@@ -454,7 +454,7 @@ $$
 
 ---
 
-## Ejercicio 3. Sistema \(4\times 4\)
+## Ejercicio 3. Sistema (4x4)
 
 Sistema:
 
