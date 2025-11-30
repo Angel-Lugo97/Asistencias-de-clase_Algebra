@@ -1,0 +1,753 @@
+Resolución de sistemas de ecuaciones lineales
+
+Este documento resume y demuestra de forma técnica y paso a paso la resolución de varios sistemas de ecuaciones lineales utilizando métodos matriciales: eliminación de Gauss, Gauss–Jordan, matriz inversa y regla de Cramer, así como la clasificación de sistemas según su tipo de solución.
+
+Ejercicio 1. Sistema 
+3
+×
+3
+3×3 con distintos métodos
+
+Se considera el sistema
+
+$
+\begin{cases}
+x + y + z = 6\
+2x - y + z = 3\
+x + 2y - z = 2
+\end{cases}
+$
+
+En forma matricial:
+
+$
+A =
+\begin{pmatrix}
+1 & 1 & 1\
+2 & -1 & 1\
+1 & 2 & -1
+\end{pmatrix},
+\qquad
+\mathbf{x} =
+\begin{pmatrix}
+x\y\z
+\end{pmatrix},
+\qquad
+\mathbf{b} =
+\begin{pmatrix}
+6\3\2
+\end{pmatrix},
+\qquad
+A\mathbf{x} = \mathbf{b}.
+$
+
+1.1 Método de Gauss (eliminación)
+
+Se construye la matriz aumentada:
+
+$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6\
+2 & -1 & 1 & 3\
+1 & 2 & -1 & 2
+\end{array}
+\right]
+$
+
+Eliminar la 
+𝑥
+x de las filas 2 y 3:
+
+$
+R_2 \leftarrow R_2 - 2R_1,\quad
+R_3 \leftarrow R_3 - R_1
+$
+
+$
+\longrightarrow
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6\
+0 & -3 & -1 & -9\
+0 & 1 & -2 & -4
+\end{array}
+\right]
+$
+
+Intercambio de filas para tener un pivote sencillo en la segunda fila:
+
+$
+R_2 \leftrightarrow R_3
+\Longrightarrow
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6\
+0 & 1 & -2 & -4\
+0 & -3 & -1 & -9
+\end{array}
+\right]
+$
+
+Eliminar la 
+𝑦
+y de la fila 3:
+
+$
+R_3 \leftarrow R_3 + 3R_2
+$
+
+$
+\longrightarrow
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6\
+0 & 1 & -2 & -4\
+0 & 0 & -7 & -21
+\end{array}
+\right]
+$
+
+A partir de la forma escalonada:
+
+$
+-7z = -21 \Rightarrow z = 3,
+$
+
+$
+y - 2z = -4 \Rightarrow y - 6 = -4 \Rightarrow y = 2,
+$
+
+$
+x + y + z = 6 \Rightarrow x + 2 + 3 = 6 \Rightarrow x = 1.
+$
+
+Por tanto,
+
+$
+(x,y,z) = (1,2,3).
+$
+
+1.2 Método de Gauss–Jordan
+
+Partimos de la matriz escalonada obtenida:
+
+$
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6\
+0 & 1 & -2 & -4\
+0 & 0 & -7 & -21
+\end{array}
+\right]
+$
+
+Normalizar el pivote de la tercera fila:
+
+$
+R_3 \leftarrow -\frac{1}{7} R_3
+\Longrightarrow
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 1 & 6\
+0 & 1 & -2 & -4\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+$
+
+Eliminar la variable 
+𝑧
+z en filas 1 y 2:
+
+$
+R_2 \leftarrow R_2 + 2R_3,\quad
+R_1 \leftarrow R_1 - R_3
+$
+
+$
+\longrightarrow
+\left[
+\begin{array}{ccc|c}
+1 & 1 & 0 & 3\
+0 & 1 & 0 & 2\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+$
+
+Eliminar 
+𝑦
+y de la primera fila:
+
+$
+R_1 \leftarrow R_1 - R_2
+$
+
+$
+\Longrightarrow
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 0 & 1\
+0 & 1 & 0 & 2\
+0 & 0 & 1 & 3
+\end{array}
+\right]
+$
+
+De la forma reducida se lee directamente:
+
+$
+x = 1,\quad y = 2,\quad z = 3.
+$
+
+1.3 Método de la matriz inversa
+
+Se tiene:
+
+$
+A =
+\begin{pmatrix}
+1 & 1 & 1\
+2 & -1 & 1\
+1 & 2 & -1
+\end{pmatrix}.
+$
+
+Se calcula el determinante de 
+𝐴
+A mediante la regla de Sarrus:
+
+$
+\det(A) = 1(-1)(-1) + 1(1)(1) + 1(2)(2)
+- 1(-1)(1) - 1(2)(-1) - 1(1)(2)
+= 1 + 1 + 4 - (-1) - (-2) - 2
+= 7.
+$
+
+Como 
+det
+⁡
+(
+𝐴
+)
+≠
+0
+det(A)
+
+=0, 
+𝐴
+A es invertible.
+La inversa (obtenida por adjunta y división entre el determinante) es:
+
+$
+A^{-1} = \frac{1}{7}
+\begin{pmatrix}
+-1 & 3 & 2\
+3 & -2 & 1\
+5 & -1 & -3
+\end{pmatrix}.
+$
+
+La solución se obtiene de 
+𝑥
+=
+𝐴
+−
+1
+𝑏
+x=A
+−1
+b:
+
+$
+A^{-1}\mathbf{b}
+= \frac{1}{7}
+\begin{pmatrix}
+-1 & 3 & 2\
+3 & -2 & 1\
+5 & -1 & -3
+\end{pmatrix}
+\begin{pmatrix}
+6\3\2
+\end{pmatrix}.
+$
+
+Primero se multiplica la matriz por el vector:
+
+$
+\begin{pmatrix}
+-1 \cdot 6 + 3 \cdot 3 + 2 \cdot 2\
+3 \cdot 6 + (-2) \cdot 3 + 1 \cdot 2\
+5 \cdot 6 + (-1) \cdot 3 + (-3) \cdot 2
+\end{pmatrix}
+\begin{pmatrix}
+-6 + 9 + 4\
+18 - 6 + 2\
+30 - 3 - 6
+\end{pmatrix}
+
+\begin{pmatrix}
+7\14\21
+\end{pmatrix}.
+$
+
+Luego se aplica el factor 
+1
+7
+7
+1
+	​
+
+:
+
+$
+\mathbf{x} = \frac{1}{7}
+\begin{pmatrix}
+7\14\21
+\end{pmatrix}
+
+\begin{pmatrix}
+1\2\3
+\end{pmatrix}.
+$
+
+1.4 Regla de Cramer
+
+Con
+
+$
+A =
+\begin{pmatrix}
+1 & 1 & 1\
+2 & -1 & 1\
+1 & 2 & -1
+\end{pmatrix},\quad
+\mathbf{b} =
+\begin{pmatrix}
+6\3\2
+\end{pmatrix},
+$
+
+el determinante principal es
+
+$
+D = \det(A) = 7.
+$
+
+Para cada variable se sustituye la columna correspondiente por 
+𝑏
+b.
+
+$
+A_x =
+\begin{pmatrix}
+6 & 1 & 1\
+3 & -1 & 1\
+2 & 2 & -1
+\end{pmatrix},
+\quad
+A_y =
+\begin{pmatrix}
+1 & 6 & 1\
+2 & 3 & 1\
+1 & 2 & -1
+\end{pmatrix},
+\quad
+A_z =
+\begin{pmatrix}
+1 & 1 & 6\
+2 & -1 & 3\
+1 & 2 & 2
+\end{pmatrix}.
+$
+
+Los determinantes (por Sarrus o cofactores) son:
+
+$
+D_x = \det(A_x) = 7,\quad
+D_y = \det(A_y) = 14,\quad
+D_z = \det(A_z) = 21.
+$
+
+Por Cramer:
+
+$
+x = \frac{D_x}{D} = \frac{7}{7} = 1,\quad
+y = \frac{D_y}{D} = \frac{14}{7} = 2,\quad
+z = \frac{D_z}{D} = \frac{21}{7} = 3.
+$
+
+Ejercicio 2. Clasificación de sistemas 
+2
+×
+2
+2×2
+
+Se estudia el tipo de solución (única, infinita o ninguna) de cada sistema.
+
+2.1 Sistema (a)
+
+$
+\begin{cases}
+x + y = 3\
+2x + 2y = 6
+\end{cases}
+$
+
+Matriz aumentada:
+
+$
+\left[
+\begin{array}{cc|c}
+1 & 1 & 3\
+2 & 2 & 6
+\end{array}
+\right]
+$
+
+Operación:
+
+$
+R_2 \leftarrow R_2 - 2R_1
+\Longrightarrow
+\left[
+\begin{array}{cc|c}
+1 & 1 & 3\
+0 & 0 & 0
+\end{array}
+\right]
+$
+
+La segunda fila se reduce a 
+0
+=
+0
+0=0.
+Rangos: 
+rank
+⁡
+(
+𝐴
+)
+=
+1
+rank(A)=1, 
+rank
+⁡
+(
+𝐴
+∣
+𝑏
+)
+=
+1
+rank(A∣b)=1 y número de incógnitas 
+=
+2
+=2.
+Por tanto, hay infinitas soluciones.
+
+2.2 Sistema (b)
+
+$
+\begin{cases}
+x + y = 3\
+2x + 2y = 7
+\end{cases}
+$
+
+Matriz aumentada:
+
+$
+\left[
+\begin{array}{cc|c}
+1 & 1 & 3\
+2 & 2 & 7
+\end{array}
+\right]
+$
+
+Operación:
+
+$
+R_2 \leftarrow R_2 - 2R_1
+\Longrightarrow
+\left[
+\begin{array}{cc|c}
+1 & 1 & 3\
+0 & 0 & 1
+\end{array}
+\right]
+$
+
+La segunda fila representa 
+0
+=
+1
+0=1, que es una contradicción.
+
+rank
+⁡
+(
+𝐴
+)
+=
+1
+rank(A)=1, 
+rank
+⁡
+(
+𝐴
+∣
+𝑏
+)
+=
+2
+rank(A∣b)=2.
+El sistema es incompatible: no tiene solución.
+
+2.3 Sistema (c)
+
+$
+\begin{cases}
+x + y = 3\
+x - y = 1
+\end{cases}
+$
+
+Matriz aumentada:
+
+$
+\left[
+\begin{array}{cc|c}
+1 & 1 & 3\
+1 & -1 & 1
+\end{array}
+\right]
+$
+
+Operaciones:
+
+Eliminar la 
+𝑥
+x de la segunda fila:
+
+$
+R_2 \leftarrow R_2 - R_1
+\Rightarrow
+\left[
+\begin{array}{cc|c}
+1 & 1 & 3\
+0 & -2 & -2
+\end{array}
+\right]
+$
+
+Normalizar segunda fila:
+
+$
+R_2 \leftarrow -\frac{1}{2} R_2
+\Rightarrow
+\left[
+\begin{array}{cc|c}
+1 & 1 & 3\
+0 & 1 & 1
+\end{array}
+\right]
+$
+
+Eliminar la 
+𝑦
+y de la primera fila:
+
+$
+R_1 \leftarrow R_1 - R_2
+\Rightarrow
+\left[
+\begin{array}{cc|c}
+1 & 0 & 2\
+0 & 1 & 1
+\end{array}
+\right]
+$
+
+Solución única:
+
+$
+x = 2,\quad y = 1.
+$
+
+Ejercicio 3. Sistema 
+4
+×
+4
+4×4 por Gauss
+
+Se resuelve:
+
+$
+\begin{cases}
+x + y + z + w = 10 \
+2x + y - z + w = 5 \
+x - y + z - w = 1 \
+x + y - z + 2w = 8
+\end{cases}
+$
+
+Matriz aumentada inicial:
+
+$
+\left[
+\begin{array}{cccc|c}
+1 & 1 & 1 & 1 & 10\
+2 & 1 & -1 & 1 & 5\
+1 & -1 & 1 & -1 & 1\
+1 & 1 & -1 & 2 & 8
+\end{array}
+\right]
+$
+
+3.1 Eliminación hacia forma escalonada
+
+Eliminar la 
+𝑥
+x en filas 2, 3 y 4:
+
+$
+R_2 \leftarrow R_2 - 2R_1,\quad
+R_3 \leftarrow R_3 - R_1,\quad
+R_4 \leftarrow R_4 - R_1
+$
+
+$
+\Longrightarrow
+\left[
+\begin{array}{cccc|c}
+1 & 1 & 1 & 1 & 10\
+0 & -1 & -3 & -1 & -15\
+0 & -2 & 0 & -2 & -9\
+0 & 0 & -2 & 1 & -2
+\end{array}
+\right]
+$
+
+Cambiar el signo de la fila 2:
+
+$
+R_2 \leftarrow -R_2
+\Rightarrow
+\left[
+\begin{array}{cccc|c}
+1 & 1 & 1 & 1 & 10\
+0 & 1 & 3 & 1 & 15\
+0 & -2 & 0 & -2 & -9\
+0 & 0 & -2 & 1 & -2
+\end{array}
+\right]
+$
+
+Eliminar la 
+𝑦
+y de la fila 3:
+
+$
+R_3 \leftarrow R_3 + 2R_2
+$
+
+$
+\Longrightarrow
+\left[
+\begin{array}{cccc|c}
+1 & 1 & 1 & 1 & 10\
+0 & 1 & 3 & 1 & 15\
+0 & 0 & 6 & 0 & 21\
+0 & 0 & -2 & 1 & -2
+\end{array}
+\right]
+$
+
+Normalizar la fila 3:
+
+$
+R_3 \leftarrow \frac{1}{6} R_3
+\Rightarrow
+\left[
+\begin{array}{cccc|c}
+1 & 1 & 1 & 1 & 10\
+0 & 1 & 3 & 1 & 15\
+0 & 0 & 1 & 0 & \frac{7}{2}\
+0 & 0 & -2 & 1 & -2
+\end{array}
+\right]
+$
+
+Eliminar la 
+𝑧
+z de la fila 4:
+
+$
+R_4 \leftarrow R_4 + 2R_3
+$
+
+$
+\Longrightarrow
+\left[
+\begin{array}{cccc|c}
+1 & 1 & 1 & 1 & 10\
+0 & 1 & 3 & 1 & 15\
+0 & 0 & 1 & 0 & \frac{7}{2}\
+0 & 0 & 0 & 1 & 5
+\end{array}
+\right]
+$
+
+La matriz ya está en forma escalonada superior.
+
+3.2 Sustitución hacia atrás
+
+De la última fila:
+
+$
+w = 5.
+$
+
+De la tercera fila:
+
+$
+z = \frac{7}{2}.
+$
+
+De la segunda fila:
+
+$
+y + 3z + w = 15
+\Rightarrow
+y + 3\left(\frac{7}{2}\right) + 5 = 15
+\Rightarrow
+y + \frac{21}{2} + \frac{10}{2} = \frac{30}{2}
+\Rightarrow
+y + \frac{31}{2} = \frac{30}{2}
+\Rightarrow
+y = -\frac{1}{2}.
+$
+
+De la primera fila:
+
+$
+x + y + z + w = 10
+\Rightarrow
+x - \frac{1}{2} + \frac{7}{2} + 5 = 10
+\Rightarrow
+x + 3 + 5 = 10
+\Rightarrow
+x = 2.
+$
+
+3.3 Solución
+
+$
+(x,y,z,w) = \left(2,,-\frac{1}{2},,\frac{7}{2},,5\right).
+$
+
+Este conjunto de ejercicios permite practicar y comparar distintos enfoques para la resolución de sistemas lineales, así como interpretar el significado algebraico de rangos, tipos de solución y operaciones elementales por filas en el contexto de matrices aumentadas.
