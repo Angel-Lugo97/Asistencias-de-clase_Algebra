@@ -4,7 +4,7 @@ Este documento resume y demuestra de forma técnica y paso a paso la resolución
 
 ---
 
-## Ejercicio 1. Sistema \(3\times 3\) con distintos métodos
+## Ejercicio 1. Sistema (3x3) con distintos métodos
 
 Se considera el sistema
 
